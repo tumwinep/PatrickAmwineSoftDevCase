@@ -85,6 +85,7 @@
       <DependentUpon>labo_sales_Model.edmx</DependentUpon>
       <LastGenOutput>labo_sales_Model.cs</LastGenOutput>
     </Content>
+    <Content Include="Landing.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Style.css" />
     <Content Include="Web.config" />
@@ -94,7 +95,7 @@
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="DataAccess.cs" />
-    <Compile Include="dataTransformer.cs" />
+    <Compile Include="DataTransformer.cs" />
     <Compile Include="Encryption.cs" />
     <Compile Include="Entity\UserEnt.cs" />
     <Compile Include="labo_sales_Model.Context.cs">
@@ -112,6 +113,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>labo_sales_Model.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Landing.aspx.cs">
+      <DependentUpon>Landing.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Landing.aspx.designer.cs">
+      <DependentUpon>Landing.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -127,6 +135,9 @@
       <DependentUpon>master.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SessionManager.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="sp_GetUserDetails_Result.cs">
       <DependentUpon>labo_sales_Model.tt</DependentUpon>
     </Compile>

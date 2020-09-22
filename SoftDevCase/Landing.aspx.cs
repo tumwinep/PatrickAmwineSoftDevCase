@@ -8,7 +8,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 namespace SoftDevCase
 {
-    public partial class Login : System.Web.UI.Page
+    public partial class Landing : System.Web.UI.Page
     {
         BusinessLogic bl = new BusinessLogic();
         Encryption enc = new Encryption();

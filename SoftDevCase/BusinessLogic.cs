@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SoftDevCase.Entity;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -11,7 +12,8 @@ namespace SoftDevCase
 {
     public class BusinessLogic : System.Web.UI.Page
     {
-
+        DataAccess dac = new DataAccess();
+        
         public Boolean stringIsEmpty(string stringToTest)
         {
             try
@@ -32,5 +34,24 @@ namespace SoftDevCase
 
         }
 
+        public Boolean validCredentials(UserEnt userDetail)
+        {
+            Boolean resp = false;
+            try
+            {
+                DataTable userDetails = dac.GetUserDetails(userDetail);
+                if (userDetails.Rows.Count > 0)
+                {
+                    SessionManager sh = new SessionManager();
+                    sh.initialiseSession(userDetails);
+                    resp = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return resp;
+        }
     }
 }

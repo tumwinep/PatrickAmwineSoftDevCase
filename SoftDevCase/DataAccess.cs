@@ -11,7 +11,7 @@ namespace SoftDevCase
 {
     public class DataAccess
     {
-        internal DataTable GetUserDetails(UserEnt userDetail)
+        public DataTable GetUserDetails(UserEnt userDetail)
         {
             DataTable userList = new DataTable();
             BusinessLogic bl = new BusinessLogic();
@@ -19,14 +19,9 @@ namespace SoftDevCase
             {
                 using (var context = new labo_salesEntities())
                 {
-                    ObjectResult<tbl_user> userResult = context.sp_GetUserDetails(userDetail.username, userDetail.password);
-
-                    //userList = DataTransformer.ToDataTable<ObjectResult<tbl_user>>(userResult);
-
-                    //foreach (Course cs in courses)
-                    //    Console.WriteLine(cs.CourseName);
+                    var userResult = context.sp_GetUserDetails(userDetail.username, userDetail.password);
+                    userList = DataTransformer.CreateDataTable(userResult.ToList());
                 }
-
             }
             catch (Exception ex)
             {
