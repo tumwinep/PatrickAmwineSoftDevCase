@@ -1,0 +1,76 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="master.master.cs" Inherits="SoftDevCase.master" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Amwine Patrick - Software Developer Case</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link href="Style.css" rel="stylesheet" type="text/css" />
+
+</head>
+<body>
+    <form id="form1" runat="server">
+
+        <div id="header" class="navbar navbar-custom fixed-top navbar-expand-sm">
+            <a class="navbar-brand" href="#">Labo Sales, International</a>
+            <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+                <i class="fa fa-bars"></i>
+            </button>
+            <nav class="collapse navbar-collapse">
+             <% 
+                 if (Session["ValidUserSession"] != null && Session["ValidUserSession"].ToString() == "OKAY")
+                 //if(true)
+                 {
+%>
+                <ul class="nav navbar-nav ml-auto">
+                    <li class="dropdown nav-item"><a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">Username</a>
+                        <ul class="dropdown-menu dropdown-menu-right">
+                            <li class="dropdown-item"><a href="#">Log Out</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                 <% 
+                     }
+%>
+            </nav>
+        </div>
+        <div id="wrapper">
+            <div id="sidebar-wrapper" class="col-lg-2 h-100">
+                <div id="sidebar">
+                     <% 
+                 if (Session["ValidUserSession"] != null && Session["ValidUserSession"].ToString() == "OKAY")
+                 //if(true)
+                 {
+%>
+                    <ul class="nav list-group">
+                        <li class="nav-item"><a class="list-group-item nav-link" href="#"><i class="icon-home icon-1x"></i>Upload CSV</a>
+                        </li>
+                        <li class="nav-item"><a class="list-group-item nav-link" href="#"><i class="icon-home icon-1x"></i>View Data</a>
+                        </li>
+                        <li class="nav-item"><a class="list-group-item nav-link" href="#"><i class="icon-home icon-1x"></i>DashBoard</a>
+                        </li>
+                    </ul>
+                    <% 
+                     }
+%>
+                </div>
+            </div>
+            <div id="main-wrapper" class="col-lg-10 h-100 float-right">
+                <div id="main" class="pt-3">
+                    <asp:ContentPlaceHolder ID="SiteMainContent" runat="server">
+                    </asp:ContentPlaceHolder>
+
+                </div>
+
+
+            </div>
+    </form>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</body>
+</html>
