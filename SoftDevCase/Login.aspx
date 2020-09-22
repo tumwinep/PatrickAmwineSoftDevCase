@@ -10,11 +10,11 @@
                 <h3>Login</h3>
                 
                 <div class="form-group">
-                    <asp:TextBox ID="txtUsername" runat="server" class="form-control" placeholder="Username *"></asp:TextBox>
+                    <asp:TextBox ID="txtUsername" runat="server" class="form-control" placeholder="Username *" required="required"></asp:TextBox>
                </div>
                 
                 <div class="form-group">
-                    <asp:TextBox ID="txtPassword" runat="server" class="form-control" placeholder="Password *"></asp:TextBox>
+                    <asp:TextBox ID="txtPassword" runat="server" class="form-control" placeholder="Password *" required="required"></asp:TextBox>
                 </div>
                 <div class="form-group">
                     <asp:Button ID="btnSubmit" runat="server" Text="Login" class="btnSubmit" OnClick="btnSubmit_Click" />
