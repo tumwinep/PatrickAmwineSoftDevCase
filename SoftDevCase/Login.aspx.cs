@@ -16,10 +16,6 @@ namespace SoftDevCase
         string ErrorMessage = "";
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if (Session["ValidUserSession"] == null || Session["ValidUserSession"].ToString() != "OKAY")
-            //{
-            //    Response.Redirect("Login.aspx", false);
-            //}
         }
 
         protected void btnSubmit_Click(object sender, EventArgs e)

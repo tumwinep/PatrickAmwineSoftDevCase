@@ -20,5 +20,22 @@ namespace SoftDevCase
                 throw ex;
             }
         }
+
+        public Boolean validSessionExists()
+        {
+            Boolean resp = false;
+            try
+            {
+                if (Session["ValidUserSession"] != null && Session["ValidUserSession"].ToString() == "OKAY")
+                {
+                    resp = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return resp;
+        }
     }
 }
