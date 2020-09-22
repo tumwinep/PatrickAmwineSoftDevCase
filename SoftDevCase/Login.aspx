@@ -8,10 +8,11 @@
         <div class="row">
             <div class="col-md-6 login-form">
                 <h3>Login</h3>
+                
                 <div class="form-group">
-                    <asp:TextBox ID="txtUsername" runat="server" class="form-control" placeholder="username *"></asp:TextBox>
-                </div>
-
+                    <asp:TextBox ID="txtUsername" runat="server" class="form-control" placeholder="Username *"></asp:TextBox>
+               </div>
+                
                 <div class="form-group">
                     <asp:TextBox ID="txtPassword" runat="server" class="form-control" placeholder="Password *"></asp:TextBox>
                 </div>

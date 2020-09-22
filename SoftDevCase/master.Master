@@ -60,6 +60,7 @@
             </div>
             <div id="main-wrapper" class="col-lg-10 h-100 float-right">
                 <div id="main" class="pt-3">
+                    <asp:Label ID="lblErrorMessage" runat="server" Text="Label" class="text-danger" Visible="false"></asp:Label>
                     <asp:ContentPlaceHolder ID="SiteMainContent" runat="server">
                     </asp:ContentPlaceHolder>
 
