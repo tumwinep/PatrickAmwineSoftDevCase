@@ -34,3 +34,7 @@ D:\Personal\CVs and Applications\2020\Laboremus\PatrickAmwineSoftDevCase\Patrick
 D:\Personal\CVs and Applications\2020\Laboremus\PatrickAmwineSoftDevCase\PatrickAmwineSoftDevCase\SoftDevCase\obj\Debug\SoftDevCase.csproj.CopyComplete
 D:\Personal\CVs and Applications\2020\Laboremus\PatrickAmwineSoftDevCase\PatrickAmwineSoftDevCase\SoftDevCase\obj\Debug\SoftDevCase.dll
 D:\Personal\CVs and Applications\2020\Laboremus\PatrickAmwineSoftDevCase\PatrickAmwineSoftDevCase\SoftDevCase\obj\Debug\SoftDevCase.pdb
+D:\Personal\CVs and Applications\2020\Laboremus\PatrickAmwineSoftDevCase\PatrickAmwineSoftDevCase\SoftDevCase\bin\EntityFramework.dll
+D:\Personal\CVs and Applications\2020\Laboremus\PatrickAmwineSoftDevCase\PatrickAmwineSoftDevCase\SoftDevCase\bin\EntityFramework.SqlServer.dll
+D:\Personal\CVs and Applications\2020\Laboremus\PatrickAmwineSoftDevCase\PatrickAmwineSoftDevCase\SoftDevCase\bin\EntityFramework.xml
+D:\Personal\CVs and Applications\2020\Laboremus\PatrickAmwineSoftDevCase\PatrickAmwineSoftDevCase\SoftDevCase\bin\EntityFramework.SqlServer.xml

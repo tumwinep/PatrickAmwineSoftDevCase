@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="labo_salesModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tbl_ErrorCode">
+    <Key>
+      <PropertyRef Name="errorId" />
+    </Key>
+    <Property Name="errorId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="errorCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="errorDesc" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_sales_detail">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Region" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Item_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Sales_Channel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Order_Priority" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Order_Date" Type="DateTime" Precision="0" />
+    <Property Name="Order_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Ship_Date" Type="DateTime" Precision="0" />
+    <Property Name="Units_Sold" Type="Int32" />
+    <Property Name="Unit_Price" Type="Double" />
+    <Property Name="Unit_Cost" Type="Double" />
+    <Property Name="Total_Revenue" Type="Double" />
+    <Property Name="Total_Cost" Type="Double" />
+    <Property Name="Total_Profit" Type="Double" />
+  </EntityType>
+  <EntityType Name="tbl_user">
+    <Key>
+      <PropertyRef Name="userId" />
+      <PropertyRef Name="username" />
+      <PropertyRef Name="password" />
+      <PropertyRef Name="active_flg" />
+      <PropertyRef Name="del_flg" />
+      <PropertyRef Name="userTypeId" />
+    </Key>
+    <Property Name="userId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="active_flg" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="del_flg" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="userTypeId" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_userType">
+    <Key>
+      <PropertyRef Name="userTypeId" />
+    </Key>
+    <Property Name="userTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="userTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="userTypeDesc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityContainer Name="labo_salesEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tbl_ErrorCode" EntityType="Self.tbl_ErrorCode" />
+    <EntitySet Name="tbl_sales_detail" EntityType="Self.tbl_sales_detail" />
+    <EntitySet Name="tbl_user" EntityType="Self.tbl_user" />
+    <EntitySet Name="tbl_userType" EntityType="Self.tbl_userType" />
+    <FunctionImport Name="sp_GetUserDetails" EntitySet="tbl_user" ReturnType="Collection(labo_salesModel.tbl_user)">
+      <Parameter Name="username" Mode="In" Type="String" />
+      <Parameter Name="password" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="sp_GetUserDetails_Result">
+    <Property Type="Int32" Name="userId" Nullable="false" />
+    <Property Type="String" Name="username" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="password" Nullable="false" MaxLength="300" />
+    <Property Type="String" Name="active_flg" Nullable="false" MaxLength="1" />
+    <Property Type="String" Name="del_flg" Nullable="false" MaxLength="1" />
+    <Property Type="String" Name="userTypeId" Nullable="false" MaxLength="10" />
+  </ComplexType>
+</Schema>
