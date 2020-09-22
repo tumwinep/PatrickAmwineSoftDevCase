@@ -17,13 +17,14 @@
 .navbar-brand {
     color: #000000;
     cursor: pointer;
-    text-transform:uppercase;
-}
-.navbar-brand:hover {
-    color: #000000;
-    cursor: pointer;
     text-transform: uppercase;
 }
+
+    .navbar-brand:hover {
+        color: #000000;
+        cursor: pointer;
+        text-transform: uppercase;
+    }
 
 .nav-link {
     margin-right: 1em !important;
@@ -68,3 +69,23 @@
         border-right: 0;
         border-top: 0;
     }
+
+.login-container {
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.login-container form {
+    padding: 10%;
+}
+
+.btnSubmit {
+    width: 50%;
+    border-radius: 1rem;
+    padding: 1.5%;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    color: #000000;
+    background-color: #FFD600;
+}

@@ -4,9 +4,21 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="SiteMainContent" runat="server">
 
-    <h1>Hello</h1>
-    <p>
-        My Content Here
-    </p>
+    <div class="container login-container">
+        <div class="row">
+            <div class="col-md-6 login-form">
+                <h3>Login</h3>
+                <div class="form-group">
+                    <asp:TextBox ID="txtUsername" runat="server" class="form-control" placeholder="username *"></asp:TextBox>
+                </div>
 
+                <div class="form-group">
+                    <asp:TextBox ID="txtPassword" runat="server" class="form-control" placeholder="Password *"></asp:TextBox>
+                </div>
+                <div class="form-group">
+                    <asp:Button ID="btnSubmit" runat="server" Text="Login" class="btnSubmit" OnClick="btnSubmit_Click" />
+                </div>
+            </div>
+        </div>
+    </div>
 </asp:Content>

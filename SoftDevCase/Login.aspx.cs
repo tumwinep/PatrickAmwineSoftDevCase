@@ -13,5 +13,10 @@ namespace SoftDevCase
         {
 
         }
+
+        protected void btnSubmit_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
