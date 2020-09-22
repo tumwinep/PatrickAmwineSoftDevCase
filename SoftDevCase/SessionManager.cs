@@ -37,5 +37,17 @@ namespace SoftDevCase
             }
             return resp;
         }
+
+        public void destroySession()
+        {
+            try
+            {
+                Session.Abandon();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

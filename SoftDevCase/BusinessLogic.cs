@@ -53,5 +53,23 @@ namespace SoftDevCase
             }
             return resp;
         }
+
+        public string getErrorMessageDescription(string errorCode)
+        {
+            string resp = "";
+            try
+            {
+                DataTable ErrorDetail = dac.GetErrorCodeDescription(errorCode);
+                if (ErrorDetail.Rows.Count > 0)
+                {
+                    resp = ErrorDetail.Rows[0]["errorDesc"].ToString().ToUpper();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return resp;
+        }
     }
 }

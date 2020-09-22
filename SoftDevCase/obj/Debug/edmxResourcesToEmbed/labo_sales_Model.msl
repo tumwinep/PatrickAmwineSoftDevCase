@@ -53,5 +53,14 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <FunctionImportMapping FunctionImportName="sp_GetUserDetails" FunctionName="labo_salesModel.Store.sp_GetUserDetails" />
+    <FunctionImportMapping FunctionImportName="sp_GetErrorMessage" FunctionName="labo_salesModel.Store.sp_GetErrorMessage">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="labo_salesModel.sp_GetErrorMessage_Result">
+          <ScalarProperty Name="errorId" ColumnName="errorId" />
+          <ScalarProperty Name="errorCode" ColumnName="errorCode" />
+          <ScalarProperty Name="errorDesc" ColumnName="errorDesc" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>

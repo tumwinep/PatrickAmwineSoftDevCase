@@ -57,5 +57,14 @@ namespace SoftDevCase
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<tbl_user>("sp_GetUserDetails", mergeOption, usernameParameter, passwordParameter);
         }
+    
+        public virtual ObjectResult<sp_GetErrorMessage_Result> sp_GetErrorMessage(string errorCode)
+        {
+            var errorCodeParameter = errorCode != null ?
+                new ObjectParameter("errorCode", errorCode) :
+                new ObjectParameter("errorCode", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_GetErrorMessage_Result>("sp_GetErrorMessage", errorCodeParameter);
+        }
     }
 }

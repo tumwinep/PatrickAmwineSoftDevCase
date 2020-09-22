@@ -61,6 +61,9 @@
       <Parameter Name="username" Mode="In" Type="String" />
       <Parameter Name="password" Mode="In" Type="String" />
     </FunctionImport>
+    <FunctionImport Name="sp_GetErrorMessage" ReturnType="Collection(labo_salesModel.sp_GetErrorMessage_Result)">
+      <Parameter Name="errorCode" Mode="In" Type="String" />
+    </FunctionImport>
   </EntityContainer>
   <ComplexType Name="sp_GetUserDetails_Result">
     <Property Type="Int32" Name="userId" Nullable="false" />
@@ -69,5 +72,10 @@
     <Property Type="String" Name="active_flg" Nullable="false" MaxLength="1" />
     <Property Type="String" Name="del_flg" Nullable="false" MaxLength="1" />
     <Property Type="String" Name="userTypeId" Nullable="false" MaxLength="10" />
+  </ComplexType>
+  <ComplexType Name="sp_GetErrorMessage_Result">
+    <Property Type="Int32" Name="errorId" Nullable="false" />
+    <Property Type="String" Name="errorCode" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="errorDesc" Nullable="true" MaxLength="100" />
   </ComplexType>
 </Schema>

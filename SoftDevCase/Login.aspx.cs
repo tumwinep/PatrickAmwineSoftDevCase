@@ -29,7 +29,7 @@ namespace SoftDevCase
 
                 if (bl.stringIsEmpty(userDetail.username) || bl.stringIsEmpty(userDetail.password))
                 {
-                    ErrorMessage = "ERROR MESSAGE:  " + "GOT YOU!!!";
+                    ErrorMessage = bl.getErrorMessageDescription("E00001");
                     displayErrorMessage(ErrorMessage);
                 }
                 else
@@ -42,7 +42,7 @@ namespace SoftDevCase
                     }
                     else
                     {
-                        ErrorMessage = "ERROR MESSAGE:  " + "GOT YOU!!!";
+                        ErrorMessage = bl.getErrorMessageDescription("E00002");
                         displayErrorMessage(ErrorMessage);
                     }
                 }

@@ -60,6 +60,9 @@ warning 6002: The table/view 'labo_sales.dbo.tbl_userType' does not have a prima
     <Property Name="userTypeName" Type="varchar" MaxLength="50" />
     <Property Name="userTypeDesc" Type="varchar" MaxLength="50" />
   </EntityType>
+  <Function Name="sp_GetErrorMessage" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="errorCode" Type="varchar" Mode="In" />
+  </Function>
   <Function Name="sp_GetUserDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="username" Type="varchar" Mode="In" />
     <Parameter Name="password" Type="varchar" Mode="In" />

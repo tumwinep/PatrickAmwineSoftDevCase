@@ -29,7 +29,6 @@ D:\Personal\CVs and Applications\2020\Laboremus\PatrickAmwineSoftDevCase\Patrick
 D:\Personal\CVs and Applications\2020\Laboremus\PatrickAmwineSoftDevCase\PatrickAmwineSoftDevCase\SoftDevCase\bin\roslyn\VBCSCompiler.exe.config
 D:\Personal\CVs and Applications\2020\Laboremus\PatrickAmwineSoftDevCase\PatrickAmwineSoftDevCase\SoftDevCase\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 D:\Personal\CVs and Applications\2020\Laboremus\PatrickAmwineSoftDevCase\PatrickAmwineSoftDevCase\SoftDevCase\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-D:\Personal\CVs and Applications\2020\Laboremus\PatrickAmwineSoftDevCase\PatrickAmwineSoftDevCase\SoftDevCase\obj\Debug\SoftDevCase.csprojAssemblyReference.cache
 D:\Personal\CVs and Applications\2020\Laboremus\PatrickAmwineSoftDevCase\PatrickAmwineSoftDevCase\SoftDevCase\obj\Debug\SoftDevCase.csproj.CoreCompileInputs.cache
 D:\Personal\CVs and Applications\2020\Laboremus\PatrickAmwineSoftDevCase\PatrickAmwineSoftDevCase\SoftDevCase\obj\Debug\SoftDevCase.csproj.CopyComplete
 D:\Personal\CVs and Applications\2020\Laboremus\PatrickAmwineSoftDevCase\PatrickAmwineSoftDevCase\SoftDevCase\obj\Debug\SoftDevCase.dll

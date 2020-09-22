@@ -24,41 +24,7 @@ namespace SoftDevCase
             }
         }
 
-        protected void btnSubmit_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                UserEnt userDetail = new UserEnt();
-
-                userDetail.username = txtUsername.Text.Trim();
-                userDetail.password = txtPassword.Text.Trim();
-
-                if (bl.stringIsEmpty(userDetail.username) || bl.stringIsEmpty(userDetail.password))
-                {
-                    ErrorMessage = "ERROR MESSAGE:  " + "GOT YOU!!!";
-                    displayErrorMessage(ErrorMessage);
-                }
-                else
-                {
-                    userDetail.password = enc.EncryptToString(userDetail.password);
-                    Boolean validCredentials = bl.validCredentials(userDetail);
-                    if (validCredentials)
-                    {
-                        Response.Redirect("Landing.aspx", false);
-                    }
-                    else
-                    {
-                        ErrorMessage = "ERROR MESSAGE:  " + "GOT YOU!!!";
-                        displayErrorMessage(ErrorMessage);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                ErrorMessage = ex.Message.ToString();
-                displayErrorMessage(ErrorMessage);
-            }
-        }
+        
 
         private void displayErrorMessage(string errorMessage)
         {

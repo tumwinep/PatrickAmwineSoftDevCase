@@ -89,3 +89,25 @@
     color: #000000;
     background-color: #FFD600;
 }
+
+.btnLogOut {
+    width: 50%;
+    border-radius: 1rem;
+    padding: 1.5%;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    color: #000000;
+    background-color: #FFD600;
+}
+
+.dropdown-menu-custom {
+    width: 50%;
+    border-radius: 1rem;
+    padding: 1.5%;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    color: #000000;
+    background-color: #FFD600;
+}

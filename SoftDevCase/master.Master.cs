@@ -13,5 +13,18 @@ namespace SoftDevCase
         {
 
         }
+
+        protected void btnLogOut_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                SessionManager sh = new SessionManager();
+                sh.destroySession();
+                Response.Redirect("Login.aspx");
+            }
+            catch (Exception ex)
+            {
+            }
+        }
     }
 }

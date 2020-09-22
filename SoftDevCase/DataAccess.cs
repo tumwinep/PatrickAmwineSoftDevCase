@@ -29,6 +29,24 @@ namespace SoftDevCase
             }
             return userList;
         }
+        public DataTable GetErrorCodeDescription(string errorCode)
+        {
+            DataTable errorMessageInfo = new DataTable();
+            BusinessLogic bl = new BusinessLogic();
+            try
+            {
+                using (var context = new labo_salesEntities())
+                {
+                    var errorMessage = context.sp_GetErrorMessage(errorCode);
+                    errorMessageInfo = DataTransformer.CreateDataTable(errorMessage.ToList());
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return errorMessageInfo;
+        }
 
     }
 }
