@@ -44,6 +44,7 @@
       <Parameter Name="errorCode" Mode="In" Type="String" />
     </FunctionImport>
     <EntitySet Name="tbl_sales_detail" EntityType="labo_salesModel.tbl_sales_detail" />
+    <FunctionImport Name="sp_InsertSalesDetails" />
   </EntityContainer>
   <ComplexType Name="sp_GetUserDetails_Result">
     <Property Type="Int32" Name="userId" Nullable="false" />

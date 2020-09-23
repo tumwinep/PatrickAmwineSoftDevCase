@@ -69,6 +69,7 @@ warning 6002: The table/view 'labo_sales.dbo.tbl_userType' does not have a prima
     <Parameter Name="username" Type="varchar" Mode="In" />
     <Parameter Name="password" Type="varchar" Mode="In" />
   </Function>
+  <Function Name="sp_InsertSalesDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <EntityContainer Name="labo_salesModelStoreContainer">
     <EntitySet Name="tbl_ErrorCode" EntityType="Self.tbl_ErrorCode" store:Type="Tables" store:Schema="dbo">
       <DefiningQuery>SELECT 

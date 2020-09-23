@@ -66,5 +66,10 @@ namespace SoftDevCase
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_GetErrorMessage_Result>("sp_GetErrorMessage", errorCodeParameter);
         }
+    
+        public virtual int sp_InsertSalesDetails()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_InsertSalesDetails");
+        }
     }
 }

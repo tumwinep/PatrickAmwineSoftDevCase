@@ -64,5 +64,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_InsertSalesDetails" FunctionName="labo_salesModel.Store.sp_InsertSalesDetails" />
   </EntityContainerMapping>
 </Mapping>

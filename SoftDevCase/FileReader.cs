@@ -74,7 +74,7 @@ namespace SoftDevCase
             }
             return resp;
         }
-        public static DataTable GetDataFromUploadedFile(string uploadPath)
+        public static DataTable GetDataFromUploadedFile(string uploadPath,string uploadedBy)
         {
             DataTable records = new DataTable();
             try
@@ -91,9 +91,17 @@ namespace SoftDevCase
                         datecolumn.AllowDBNull = true;
                         records.Columns.Add(datecolumn);
                     }
+                    //Add the uploaded_by Info Header
+                    DataColumn uploadDetailCoumn = new DataColumn("uploaded_by");
+                    uploadDetailCoumn.AllowDBNull = true;
+                    records.Columns.Add(uploadDetailCoumn);
+
                     while (!csvReader.EndOfData)
                     {
-                        string[] fieldData = csvReader.ReadFields();
+                        string[] fieldDataInfo = csvReader.ReadFields();
+                        List<string> fieldlist = fieldDataInfo.ToList();
+                        fieldlist.Add(uploadedBy);
+                        string[] fieldData = fieldlist.ToArray();
                         //Making empty value as null
                         for (int i = 0; i < fieldData.Length; i++)
                         {

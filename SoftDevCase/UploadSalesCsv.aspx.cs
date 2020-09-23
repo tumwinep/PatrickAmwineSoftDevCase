@@ -49,11 +49,23 @@ namespace SoftDevCase
 
                         if (validFileInput == "OK")
                         {
-                            DataTable uplrecords = FileReader.GetDataFromUploadedFile(fileSavePath);
+                            DataTable uplrecords = FileReader.GetDataFromUploadedFile(fileSavePath, Session["username"].ToString());
 
+                            string result = bl.InsertLoadedDatatoDB(uplrecords);
 
-                            successMessage = "FILE UPLOADED SUCCESSFULLY";
-                            //displayStatusMessage(successMessage, "SUCC");
+                            if (result == "OK")
+                            {
+                                string procFilePath = Server.MapPath("~/uploads/Processed/" + fileUpl.FileName);
+                                File.Move(fileSavePath, procFilePath);
+                                successMessage = "FILE UPLOADED SUCCESSFULLY";
+                                displayStatusMessage(successMessage, "SUCC");
+                            }
+                            else
+                            {
+                                File.Delete(fileSavePath);
+                                ErrorMessage = result;
+                                displayStatusMessage(ErrorMessage, "FAIL");
+                            }
                         }
                         else
                         {

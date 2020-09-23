@@ -71,5 +71,19 @@ namespace SoftDevCase
             }
             return resp;
         }
+
+        public string InsertLoadedDatatoDB(DataTable uplrecords)
+        {
+            string resp = "";
+            try
+            {
+                resp = dac.InsertLoadedDatatoDB(uplrecords);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return resp;
+        }
     }
 }

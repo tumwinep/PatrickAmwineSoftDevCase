@@ -74,6 +74,7 @@ warning 6002: The table/view 'labo_sales.dbo.tbl_userType' does not have a prima
           <Parameter Name="username" Type="varchar" Mode="In" />
           <Parameter Name="password" Type="varchar" Mode="In" />
         </Function>
+        <Function Name="sp_InsertSalesDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="labo_salesModelStoreContainer">
           <EntitySet Name="tbl_ErrorCode" EntityType="Self.tbl_ErrorCode" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -169,6 +170,7 @@ warning 6002: The table/view 'labo_sales.dbo.tbl_userType' does not have a prima
           <Parameter Name="errorCode" Mode="In" Type="String" />
           </FunctionImport>
           <EntitySet Name="tbl_sales_detail" EntityType="labo_salesModel.tbl_sales_detail" />
+          <FunctionImport Name="sp_InsertSalesDetails" />
         </EntityContainer>
         <ComplexType Name="sp_GetUserDetails_Result">
           <Property Type="Int32" Name="userId" Nullable="false" />
@@ -275,6 +277,7 @@ warning 6002: The table/view 'labo_sales.dbo.tbl_userType' does not have a prima
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_InsertSalesDetails" FunctionName="labo_salesModel.Store.sp_InsertSalesDetails" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

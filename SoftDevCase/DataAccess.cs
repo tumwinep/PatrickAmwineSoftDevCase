@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Reflection;
 using System.Data.Entity.Core.Objects;
+using System.Data.SqlClient;
 
 namespace SoftDevCase
 {
@@ -48,5 +49,23 @@ namespace SoftDevCase
             return errorMessageInfo;
         }
 
+        public string InsertLoadedDatatoDB(DataTable uplrecords)
+        {
+            string result = "OK";
+            try
+            {
+                using (var DB = new labo_salesEntities())
+                {
+                    SqlParameter Parameter = new SqlParameter("@param1", uplrecords);
+                    Parameter.TypeName = "salesDetailType";
+                    DB.Database.ExecuteSqlCommand("exec sp_InsertSalesDetails @param1", Parameter);
+                }
+            }
+            catch (Exception ex)
+            {
+                result=ex.Message;
+            }
+            return result;
+        }
     }
 }
