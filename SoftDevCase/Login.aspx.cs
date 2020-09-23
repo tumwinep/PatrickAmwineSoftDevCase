@@ -63,13 +63,17 @@ namespace SoftDevCase
                 switch (type)
                 {
                     case "SUCC":
+                        Label msgFa = (Label)Master.FindControl("lblErrorMessage");
                         Label msgS = (Label)Master.FindControl("lblSuccessMessage");
+                        msgFa.Visible = false;
                         msgS.Text = statusMessage;
                         msgS.Visible = true;
                         break;
                     case "FAIL":
                         Label msgF = (Label)Master.FindControl("lblErrorMessage");
+                        Label msgSuc = (Label)Master.FindControl("lblSuccessMessage");
                         msgF.Text = statusMessage;
+                        msgSuc.Visible = false;
                         msgF.Visible = true;
                         break;
                 }

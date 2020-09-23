@@ -31,7 +31,26 @@ namespace SoftDevCase
                             {
                                 for (int i = 0; i < fieldData.Length; i++)
                                 {
-                                    if ((i == 5 || i == 7) && lineNumb!=1)
+                                    if ((i == 0 || i == 7) && lineNumb == 1)
+                                    {
+                                        DateTime temp;
+                                        if (DateTime.TryParseExact(fieldData[i], "M/d/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out temp))
+                                        {
+                                            resp = "VALIDATION FAIL. UPLOADED FILE SHOULD HAVE COLUMN HEADERS ON LINE " + lineNumb;
+                                            break;
+                                        }
+                                    }
+                                    else if ((i == 6 || i == 8 || i == 9 || i == 10 || i == 11 || i == 12 || i == 13) && lineNumb == 1)
+                                    {
+                                        Double temp;
+
+                                        if (Double.TryParse(fieldData[i], out temp))
+                                        {
+                                            resp = "VALIDATION FAIL. UPLOADED FILE SHOULD HAVE COLUMN HEADERS ON LINE "+ lineNumb;
+                                            break;
+                                        }
+                                    }
+                                    else if ((i == 5 || i == 7) && lineNumb!=1)
                                     {
                                         DateTime temp;
                                         if (!DateTime.TryParseExact(fieldData[i], "M/d/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out temp))
