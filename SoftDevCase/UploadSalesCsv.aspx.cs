@@ -42,35 +42,43 @@ namespace SoftDevCase
 
                     if (allowed.Contains(extension) && validContentType)
                     {
-                        var fileSavePath = Server.MapPath("~/uploads/" + fileUpl.FileName);
-                        fileUpl.SaveAs(fileSavePath);
+                        string procFilePath = Server.MapPath("~/uploads/Processed/" + fileUpl.FileName);
+                        if (!File.Exists(procFilePath))
+                        { 
+                            var fileSavePath = Server.MapPath("~/uploads/" + fileUpl.FileName);
+                            fileUpl.SaveAs(fileSavePath);
 
-                        string validFileInput = FileReader.ValidateUploadedFileData(fileSavePath);
+                            string validFileInput = FileReader.ValidateUploadedFileData(fileSavePath);
 
-                        if (validFileInput == "OK")
-                        {
-                            DataTable uplrecords = FileReader.GetDataFromUploadedFile(fileSavePath, Session["username"].ToString());
-
-                            string result = bl.InsertLoadedDatatoDB(uplrecords);
-
-                            if (result == "OK")
+                            if (validFileInput == "OK")
                             {
-                                string procFilePath = Server.MapPath("~/uploads/Processed/" + fileUpl.FileName);
-                                File.Move(fileSavePath, procFilePath);
-                                successMessage = "FILE UPLOADED SUCCESSFULLY";
-                                displayStatusMessage(successMessage, "SUCC");
+                                DataTable uplrecords = FileReader.GetDataFromUploadedFile(fileSavePath, Session["username"].ToString());
+
+                                string result = bl.InsertLoadedDatatoDB(uplrecords);
+
+                                if (result == "OK")
+                                {
+                                    File.Move(fileSavePath, procFilePath);
+                                    successMessage = "FILE UPLOADED SUCCESSFULLY";
+                                    displayStatusMessage(successMessage, "SUCC");
+                                }
+                                else
+                                {
+                                    File.Delete(fileSavePath);
+                                    ErrorMessage = result;
+                                    displayStatusMessage(ErrorMessage, "FAIL");
+                                }
                             }
                             else
                             {
                                 File.Delete(fileSavePath);
-                                ErrorMessage = result;
+                                ErrorMessage = validFileInput;
                                 displayStatusMessage(ErrorMessage, "FAIL");
                             }
                         }
                         else
                         {
-                            File.Delete(fileSavePath);
-                            ErrorMessage = validFileInput;
+                            ErrorMessage = bl.getErrorMessageDescription("E00005"); 
                             displayStatusMessage(ErrorMessage, "FAIL");
                         }
 
