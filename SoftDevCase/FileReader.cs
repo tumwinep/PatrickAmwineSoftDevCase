@@ -135,7 +135,7 @@ namespace SoftDevCase
             }
             catch (Exception ex)
             {
-                return null;
+                //Ignore and return empty Data Table;
             }
             return records;
         }

@@ -54,18 +54,28 @@ namespace SoftDevCase
                             {
                                 DataTable uplrecords = FileReader.GetDataFromUploadedFile(fileSavePath, Session["username"].ToString());
 
-                                string result = bl.InsertLoadedDatatoDB(uplrecords);
-
-                                if (result == "OK")
+                                if (uplrecords.Rows.Count != 0)
                                 {
-                                    File.Move(fileSavePath, procFilePath);
-                                    successMessage = "FILE UPLOADED SUCCESSFULLY";
-                                    displayStatusMessage(successMessage, "SUCC");
+
+                                    string result = bl.InsertLoadedDatatoDB(uplrecords);
+
+                                    if (result == "OK")
+                                    {
+                                        File.Move(fileSavePath, procFilePath);
+                                        successMessage = "FILE UPLOADED SUCCESSFULLY";
+                                        displayStatusMessage(successMessage, "SUCC");
+                                    }
+                                    else
+                                    {
+                                        File.Delete(fileSavePath);
+                                        ErrorMessage = result;
+                                        displayStatusMessage(ErrorMessage, "FAIL");
+                                    }
                                 }
                                 else
                                 {
                                     File.Delete(fileSavePath);
-                                    ErrorMessage = result;
+                                    ErrorMessage = bl.getErrorMessageDescription("E00006");
                                     displayStatusMessage(ErrorMessage, "FAIL");
                                 }
                             }
