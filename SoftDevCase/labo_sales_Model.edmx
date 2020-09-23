@@ -36,6 +36,8 @@ warning 6002: The table/view 'labo_sales.dbo.tbl_sales_detail' does not have a p
           <Property Name="Total_Revenue" Type="float" />
           <Property Name="Total_Cost" Type="float" />
           <Property Name="Total_Profit" Type="float" />
+          <Property Name="uploaded_by" Type="varchar" MaxLength="50" />
+          <Property Name="uploaded_date" Type="datetime" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'labo_sales.dbo.tbl_user' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -96,7 +98,9 @@ warning 6002: The table/view 'labo_sales.dbo.tbl_userType' does not have a prima
     [tbl_sales_detail].[Unit_Cost] AS [Unit_Cost], 
     [tbl_sales_detail].[Total_Revenue] AS [Total_Revenue], 
     [tbl_sales_detail].[Total_Cost] AS [Total_Cost], 
-    [tbl_sales_detail].[Total_Profit] AS [Total_Profit]
+    [tbl_sales_detail].[Total_Profit] AS [Total_Profit], 
+    [tbl_sales_detail].[uploaded_by] AS [uploaded_by], 
+    [tbl_sales_detail].[uploaded_date] AS [uploaded_date]
     FROM [dbo].[tbl_sales_detail] AS [tbl_sales_detail]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="tbl_user" EntityType="Self.tbl_user" store:Type="Tables" store:Schema="dbo">
@@ -129,26 +133,6 @@ warning 6002: The table/view 'labo_sales.dbo.tbl_userType' does not have a prima
           <Property Name="errorCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="errorDesc" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
         </EntityType>
-        <EntityType Name="tbl_sales_detail">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Region" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Item_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Sales_Channel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Order_Priority" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Order_Date" Type="DateTime" Precision="0" />
-          <Property Name="Order_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Ship_Date" Type="DateTime" Precision="0" />
-          <Property Name="Units_Sold" Type="Int32" />
-          <Property Name="Unit_Price" Type="Double" />
-          <Property Name="Unit_Cost" Type="Double" />
-          <Property Name="Total_Revenue" Type="Double" />
-          <Property Name="Total_Cost" Type="Double" />
-          <Property Name="Total_Profit" Type="Double" />
-        </EntityType>
         <EntityType Name="tbl_user">
           <Key>
             <PropertyRef Name="userId" />
@@ -175,7 +159,6 @@ warning 6002: The table/view 'labo_sales.dbo.tbl_userType' does not have a prima
         </EntityType>
         <EntityContainer Name="labo_salesEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="tbl_ErrorCode" EntityType="Self.tbl_ErrorCode" />
-          <EntitySet Name="tbl_sales_detail" EntityType="Self.tbl_sales_detail" />
           <EntitySet Name="tbl_user" EntityType="Self.tbl_user" />
           <EntitySet Name="tbl_userType" EntityType="Self.tbl_userType" />
           <FunctionImport Name="sp_GetUserDetails" EntitySet="tbl_user" ReturnType="Collection(labo_salesModel.tbl_user)">
@@ -183,8 +166,9 @@ warning 6002: The table/view 'labo_sales.dbo.tbl_userType' does not have a prima
             <Parameter Name="password" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_GetErrorMessage" ReturnType="Collection(labo_salesModel.sp_GetErrorMessage_Result)">
-            <Parameter Name="errorCode" Mode="In" Type="String" />
+          <Parameter Name="errorCode" Mode="In" Type="String" />
           </FunctionImport>
+          <EntitySet Name="tbl_sales_detail" EntityType="labo_salesModel.tbl_sales_detail" />
         </EntityContainer>
         <ComplexType Name="sp_GetUserDetails_Result">
           <Property Type="Int32" Name="userId" Nullable="false" />
@@ -199,6 +183,28 @@ warning 6002: The table/view 'labo_sales.dbo.tbl_userType' does not have a prima
           <Property Type="String" Name="errorCode" Nullable="true" MaxLength="50" />
           <Property Type="String" Name="errorDesc" Nullable="true" MaxLength="100" />
         </ComplexType>
+        <EntityType Name="tbl_sales_detail">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Region" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Item_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Sales_Channel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Order_Priority" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Order_Date" Type="DateTime" Precision="0" />
+          <Property Name="Order_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Ship_Date" Type="DateTime" Precision="0" />
+          <Property Name="Units_Sold" Type="Int32" />
+          <Property Name="Unit_Price" Type="Double" />
+          <Property Name="Unit_Cost" Type="Double" />
+          <Property Name="Total_Revenue" Type="Double" />
+          <Property Name="Total_Cost" Type="Double" />
+          <Property Name="Total_Profit" Type="Double" />
+          <Property Name="uploaded_by" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="uploaded_date" Type="DateTime" Precision="3" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -211,27 +217,6 @@ warning 6002: The table/view 'labo_sales.dbo.tbl_userType' does not have a prima
                 <ScalarProperty Name="errorId" ColumnName="errorId" />
                 <ScalarProperty Name="errorCode" ColumnName="errorCode" />
                 <ScalarProperty Name="errorDesc" ColumnName="errorDesc" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="tbl_sales_detail">
-            <EntityTypeMapping TypeName="labo_salesModel.tbl_sales_detail">
-              <MappingFragment StoreEntitySet="tbl_sales_detail">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="Region" ColumnName="Region" />
-                <ScalarProperty Name="Country" ColumnName="Country" />
-                <ScalarProperty Name="Item_Type" ColumnName="Item_Type" />
-                <ScalarProperty Name="Sales_Channel" ColumnName="Sales_Channel" />
-                <ScalarProperty Name="Order_Priority" ColumnName="Order_Priority" />
-                <ScalarProperty Name="Order_Date" ColumnName="Order_Date" />
-                <ScalarProperty Name="Order_ID" ColumnName="Order_ID" />
-                <ScalarProperty Name="Ship_Date" ColumnName="Ship_Date" />
-                <ScalarProperty Name="Units_Sold" ColumnName="Units_Sold" />
-                <ScalarProperty Name="Unit_Price" ColumnName="Unit_Price" />
-                <ScalarProperty Name="Unit_Cost" ColumnName="Unit_Cost" />
-                <ScalarProperty Name="Total_Revenue" ColumnName="Total_Revenue" />
-                <ScalarProperty Name="Total_Cost" ColumnName="Total_Cost" />
-                <ScalarProperty Name="Total_Profit" ColumnName="Total_Profit" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -267,6 +252,29 @@ warning 6002: The table/view 'labo_sales.dbo.tbl_userType' does not have a prima
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <EntitySetMapping Name="tbl_sales_detail">
+            <EntityTypeMapping TypeName="labo_salesModel.tbl_sales_detail">
+              <MappingFragment StoreEntitySet="tbl_sales_detail">
+                <ScalarProperty Name="uploaded_date" ColumnName="uploaded_date" />
+                <ScalarProperty Name="uploaded_by" ColumnName="uploaded_by" />
+                <ScalarProperty Name="Total_Profit" ColumnName="Total_Profit" />
+                <ScalarProperty Name="Total_Cost" ColumnName="Total_Cost" />
+                <ScalarProperty Name="Total_Revenue" ColumnName="Total_Revenue" />
+                <ScalarProperty Name="Unit_Cost" ColumnName="Unit_Cost" />
+                <ScalarProperty Name="Unit_Price" ColumnName="Unit_Price" />
+                <ScalarProperty Name="Units_Sold" ColumnName="Units_Sold" />
+                <ScalarProperty Name="Ship_Date" ColumnName="Ship_Date" />
+                <ScalarProperty Name="Order_ID" ColumnName="Order_ID" />
+                <ScalarProperty Name="Order_Date" ColumnName="Order_Date" />
+                <ScalarProperty Name="Order_Priority" ColumnName="Order_Priority" />
+                <ScalarProperty Name="Sales_Channel" ColumnName="Sales_Channel" />
+                <ScalarProperty Name="Item_Type" ColumnName="Item_Type" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="Region" ColumnName="Region" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

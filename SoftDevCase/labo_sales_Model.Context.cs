@@ -28,9 +28,9 @@ namespace SoftDevCase
         }
     
         public virtual DbSet<tbl_ErrorCode> tbl_ErrorCode { get; set; }
-        public virtual DbSet<tbl_sales_detail> tbl_sales_detail { get; set; }
         public virtual DbSet<tbl_user> tbl_user { get; set; }
         public virtual DbSet<tbl_userType> tbl_userType { get; set; }
+        public virtual DbSet<tbl_sales_detail> tbl_sales_detail { get; set; }
     
         public virtual ObjectResult<tbl_user> sp_GetUserDetails(string username, string password)
         {

@@ -31,6 +31,8 @@ warning 6002: The table/view 'labo_sales.dbo.tbl_sales_detail' does not have a p
     <Property Name="Total_Revenue" Type="float" />
     <Property Name="Total_Cost" Type="float" />
     <Property Name="Total_Profit" Type="float" />
+    <Property Name="uploaded_by" Type="varchar" MaxLength="50" />
+    <Property Name="uploaded_date" Type="datetime" />
   </EntityType>
   <!--Errors Found During Generation:
 warning 6002: The table/view 'labo_sales.dbo.tbl_user' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -91,7 +93,9 @@ warning 6002: The table/view 'labo_sales.dbo.tbl_userType' does not have a prima
     [tbl_sales_detail].[Unit_Cost] AS [Unit_Cost], 
     [tbl_sales_detail].[Total_Revenue] AS [Total_Revenue], 
     [tbl_sales_detail].[Total_Cost] AS [Total_Cost], 
-    [tbl_sales_detail].[Total_Profit] AS [Total_Profit]
+    [tbl_sales_detail].[Total_Profit] AS [Total_Profit], 
+    [tbl_sales_detail].[uploaded_by] AS [uploaded_by], 
+    [tbl_sales_detail].[uploaded_date] AS [uploaded_date]
     FROM [dbo].[tbl_sales_detail] AS [tbl_sales_detail]</DefiningQuery>
     </EntitySet>
     <EntitySet Name="tbl_user" EntityType="Self.tbl_user" store:Type="Tables" store:Schema="dbo">

@@ -29,5 +29,7 @@ namespace SoftDevCase
         public Nullable<double> Total_Revenue { get; set; }
         public Nullable<double> Total_Cost { get; set; }
         public Nullable<double> Total_Profit { get; set; }
+        public string uploaded_by { get; set; }
+        public Nullable<System.DateTime> uploaded_date { get; set; }
     }
 }

@@ -37,3 +37,4 @@ D:\Personal\CVs and Applications\2020\Laboremus\PatrickAmwineSoftDevCase\Patrick
 D:\Personal\CVs and Applications\2020\Laboremus\PatrickAmwineSoftDevCase\PatrickAmwineSoftDevCase\SoftDevCase\bin\EntityFramework.SqlServer.dll
 D:\Personal\CVs and Applications\2020\Laboremus\PatrickAmwineSoftDevCase\PatrickAmwineSoftDevCase\SoftDevCase\bin\EntityFramework.xml
 D:\Personal\CVs and Applications\2020\Laboremus\PatrickAmwineSoftDevCase\PatrickAmwineSoftDevCase\SoftDevCase\bin\EntityFramework.SqlServer.xml
+D:\Personal\CVs and Applications\2020\Laboremus\PatrickAmwineSoftDevCase\PatrickAmwineSoftDevCase\SoftDevCase\obj\Debug\SoftDevCase.csprojAssemblyReference.cache

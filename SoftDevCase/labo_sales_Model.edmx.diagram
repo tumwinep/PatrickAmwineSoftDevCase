@@ -6,9 +6,9 @@
     <edmx:Diagrams>
       <Diagram DiagramId="8f2fbabd62214a6680eee87d50d1734a" Name="Diagram1">
         <EntityTypeShape EntityType="labo_salesModel.tbl_ErrorCode" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="labo_salesModel.tbl_sales_detail" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="labo_salesModel.tbl_user" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="labo_salesModel.tbl_userType" Width="1.5" PointX="4.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="labo_salesModel.tbl_sales_detail" Width="1.5" PointX="0.75" PointY="3.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
