@@ -24,13 +24,15 @@ namespace SoftDevCase
             {
                 UserEnt userDetail = new UserEnt();
 
+                //string ewr = enc.EncryptToString("admin@123");
+
                 userDetail.username = txtUsername.Text.Trim();
                 userDetail.password = txtPassword.Text.Trim();
 
                 if (bl.stringIsEmpty(userDetail.username) || bl.stringIsEmpty(userDetail.password))
                 {
                     ErrorMessage = bl.getErrorMessageDescription("E00001");
-                    displayErrorMessage(ErrorMessage);
+                    displayStatusMessage(ErrorMessage, "FAIL");
                 }
                 else
                 {
@@ -43,24 +45,34 @@ namespace SoftDevCase
                     else
                     {
                         ErrorMessage = bl.getErrorMessageDescription("E00002");
-                        displayErrorMessage(ErrorMessage);
+                        displayStatusMessage(ErrorMessage, "FAIL");
                     }
                 }
             }
             catch (Exception ex)
             {
                 ErrorMessage = ex.Message.ToString();
-                displayErrorMessage(ErrorMessage);
+                displayStatusMessage(ErrorMessage, "FAIL");
             }
         }
 
-        private void displayErrorMessage(string errorMessage)
+        private void displayStatusMessage(string statusMessage, string type)
         {
             try
             {
-                Label msg = (Label)Master.FindControl("lblErrorMessage");
-                msg.Text = errorMessage;
-                msg.Visible = true;
+                switch (type)
+                {
+                    case "SUCC":
+                        Label msgS = (Label)Master.FindControl("lblSuccessMessage");
+                        msgS.Text = statusMessage;
+                        msgS.Visible = true;
+                        break;
+                    case "FAIL":
+                        Label msgF = (Label)Master.FindControl("lblErrorMessage");
+                        msgF.Text = statusMessage;
+                        msgF.Visible = true;
+                        break;
+                }
             }
             catch (Exception ex)
             {

@@ -28,7 +28,6 @@
                 <ul class="nav navbar-nav ml-auto">
                     <li class="dropdown nav-item"><a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                         <% 
-
                             =Session["username"]
                         %>
                     </a>
@@ -52,7 +51,7 @@
                         {
                     %>
                     <ul class="nav list-group">
-                        <li class="nav-item"><a class="list-group-item nav-link" href="#"><i class="icon-home icon-1x"></i>Upload CSV</a>
+                        <li class="nav-item"><a class="list-group-item nav-link" href="UploadSalesCsv.aspx"><i class="icon-home icon-1x"></i>Upload CSV</a>
                         </li>
                         <li class="nav-item"><a class="list-group-item nav-link" href="#"><i class="icon-home icon-1x"></i>View Data</a>
                         </li>
@@ -67,6 +66,7 @@
             <div id="main-wrapper" class="col-lg-10 h-100 float-right">
                 <div id="main" class="pt-3">
                     <asp:Label ID="lblErrorMessage" runat="server" Text="Label" class="text-danger" Visible="false"></asp:Label>
+                    <asp:Label ID="lblSuccessMessage" runat="server" Text="Label" class="text-success" Visible="false"></asp:Label>
                     <asp:ContentPlaceHolder ID="SiteMainContent" runat="server">
                     </asp:ContentPlaceHolder>
 
@@ -78,6 +78,6 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
 </body>
+   
 </html>

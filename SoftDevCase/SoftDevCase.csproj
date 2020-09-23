@@ -50,6 +50,7 @@
       <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
@@ -85,6 +86,7 @@
       <DependentUpon>labo_sales_Model.edmx</DependentUpon>
       <LastGenOutput>labo_sales_Model.cs</LastGenOutput>
     </Content>
+    <Content Include="UploadSalesCsv.aspx" />
     <Content Include="Landing.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Style.css" />
@@ -98,6 +100,7 @@
     <Compile Include="DataTransformer.cs" />
     <Compile Include="Encryption.cs" />
     <Compile Include="Entity\UserEnt.cs" />
+    <Compile Include="FileReader.cs" />
     <Compile Include="labo_sales_Model.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -112,6 +115,13 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>labo_sales_Model.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="UploadSalesCsv.aspx.cs">
+      <DependentUpon>UploadSalesCsv.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UploadSalesCsv.aspx.designer.cs">
+      <DependentUpon>UploadSalesCsv.aspx</DependentUpon>
     </Compile>
     <Compile Include="Landing.aspx.cs">
       <DependentUpon>Landing.aspx</DependentUpon>
@@ -174,7 +184,9 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="uploads\Processed\" />
+  </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
