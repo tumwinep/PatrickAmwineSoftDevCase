@@ -57,6 +57,8 @@
                         </li>
                         <li class="nav-item"><a class="list-group-item nav-link" href="Dashboard.aspx"><i class="icon-home icon-1x"></i>DashBoard</a>
                         </li>
+                        <li class="nav-item"><a class="list-group-item nav-link" href="UserLogOut.aspx"><i class="icon-home icon-1x"></i>Logout</a>
+                        </li>
                     </ul>
                     <% 
                         }

@@ -87,6 +87,7 @@
       <LastGenOutput>labo_sales_Model.cs</LastGenOutput>
     </Content>
     <Content Include="Dashboard.aspx" />
+    <Content Include="UserLogOut.aspx" />
     <Content Include="ViewData.aspx" />
     <Content Include="UploadSalesCsv.aspx" />
     <Content Include="Landing.aspx" />
@@ -117,6 +118,13 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>labo_sales_Model.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="UserLogOut.aspx.cs">
+      <DependentUpon>UserLogOut.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserLogOut.aspx.designer.cs">
+      <DependentUpon>UserLogOut.aspx</DependentUpon>
     </Compile>
     <Compile Include="sp_GetSalesReportDetailsByDate_Result.cs">
       <DependentUpon>labo_sales_Model.tt</DependentUpon>
