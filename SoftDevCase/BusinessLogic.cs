@@ -200,7 +200,8 @@ namespace SoftDevCase
             {
                 throw ex;
             }
-            return totalProfit.ToString();
+            string formatedText = string.Format("{0:0,0.00}", totalProfit); 
+            return formatedText;
         }
     }
 }

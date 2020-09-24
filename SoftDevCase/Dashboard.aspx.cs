@@ -98,7 +98,7 @@ namespace SoftDevCase
                     string fromDateFormated = bl.returnDBFormatedDate(selectFromDate);
                     string toDateFormated = bl.returnDBFormatedDate(selectToDate);
                     gv_totprofitDetail.PageIndex = e.NewPageIndex;
-                    DisplayGrids(selectFromDate, selectToDate);
+                    DisplayGrids(fromDateFormated, toDateFormated);
                 }
                 else
                 {
@@ -113,37 +113,6 @@ namespace SoftDevCase
             }
 
 
-        }
-
-        protected void indexChangedTopItems(object sender, GridViewPageEventArgs e)
-        {
-            try
-            {
-                string selectFromDate = txt_fromdatepicker.Text.Trim();
-                string selectToDate = txt_todatepicker.Text.Trim();
-
-                string validateDateResponse = bl.validateSelectedDates(selectFromDate, selectToDate);
-
-                if (validateDateResponse == "OK")
-                {
-                    string fromDateFormated = bl.returnDBFormatedDate(selectFromDate);
-                    string toDateFormated = bl.returnDBFormatedDate(selectToDate);
-                    gv_topItems.PageIndex = e.NewPageIndex;
-                    DisplayProfitableItemsGrids(fromDateFormated, toDateFormated);
-                }
-                else
-                {
-                    ErrorMessage = validateDateResponse;
-                    displayStatusMessage(ErrorMessage, "FAIL");
-                }
-
-
-            }
-            catch (Exception ex)
-            {
-                ErrorMessage = ex.Message.ToString();
-                displayStatusMessage(ErrorMessage, "FAIL");
-            }
         }
 
         protected void btnSubmit_Click(object sender, EventArgs e)
@@ -214,6 +183,7 @@ namespace SoftDevCase
             try
             {
                 string totalProfit = bl.CalculateTotalProfit(profitDetails);
+                mv_dashboardDetails.ActiveViewIndex = 0;
                 mv_dashboardDetails.Visible = true;
                 lbltotProfitDisplay.Text = "TOTAL PROFIT MADE: " + totalProfit;
 

@@ -52,7 +52,7 @@
                 <asp:Label runat="server" Text="" ID="lbltotProfitDisplay"></asp:Label></h3>
 
             <div class="input-group">
-                <asp:GridView ID="gv_totprofitDetail" runat="server" AllowPaging="True" PageSize="10" AutoGenerateColumns="false" OnPageIndexChanging="indexChangedTotprofit">
+                <asp:GridView ID="gv_totprofitDetail" runat="server" AllowPaging="True" PageSize="5" AutoGenerateColumns="false" OnPageIndexChanging="indexChangedTotprofit">
                     <Columns>
                         <asp:BoundField ItemStyle-Width="150px" DataField="Order_Date" HeaderText="Order Date" />
                         <asp:BoundField ItemStyle-Width="150px" DataField="Order_Priority" HeaderText="Order Priority" />
@@ -69,7 +69,7 @@
             <p></p>
             <h3>Top 5 Profitable Item Types</h3>
             <div class="input-group">
-                <asp:GridView ID="gv_topItems" runat="server" AllowPaging="True" PageSize="10" AutoGenerateColumns="false" OnPageIndexChanging="indexChangedTopItems">
+                <asp:GridView ID="gv_topItems" runat="server" PageSize="10" AutoGenerateColumns="false">
                     <Columns>
                         <asp:BoundField ItemStyle-Width="150px" DataField="Item_Type" HeaderText="Item Type" />
                         <asp:BoundField ItemStyle-Width="150px" DataField="Total_Profit" HeaderText="Total Profit" />
