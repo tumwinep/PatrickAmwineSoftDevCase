@@ -71,6 +71,14 @@ warning 6002: The table/view 'labo_sales.dbo.tbl_userType' does not have a prima
           <Parameter Name="errorCode" Type="varchar" Mode="In" />
         </Function>
         <Function Name="sp_GetSalesReportDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_GetSalesReportDetailsByDate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="fromDate" Type="date" Mode="In" />
+          <Parameter Name="todate" Type="date" Mode="In" />
+        </Function>
+        <Function Name="sp_getTopprofitableItemTypes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="fromDate" Type="date" Mode="In" />
+          <Parameter Name="todate" Type="date" Mode="In" />
+        </Function>
         <Function Name="sp_GetUserDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="username" Type="varchar" Mode="In" />
           <Parameter Name="password" Type="varchar" Mode="In" />
@@ -173,6 +181,14 @@ warning 6002: The table/view 'labo_sales.dbo.tbl_userType' does not have a prima
           <EntitySet Name="tbl_sales_detail" EntityType="labo_salesModel.tbl_sales_detail" />
           <FunctionImport Name="sp_InsertSalesDetails" />
           <FunctionImport Name="sp_GetSalesReportDetails" ReturnType="Collection(labo_salesModel.sp_GetSalesReportDetails_Result)" />
+          <FunctionImport Name="sp_GetSalesReportDetailsByDate" ReturnType="Collection(labo_salesModel.sp_GetSalesReportDetailsByDate_Result)">
+            <Parameter Name="fromDate" Mode="In" Type="DateTime" />
+            <Parameter Name="todate" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="sp_getTopprofitableItemTypes" ReturnType="Collection(labo_salesModel.sp_getTopprofitableItemTypes_Result)">
+            <Parameter Name="fromDate" Mode="In" Type="DateTime" />
+            <Parameter Name="todate" Mode="In" Type="DateTime" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="sp_GetUserDetails_Result">
           <Property Type="Int32" Name="userId" Nullable="false" />
@@ -227,6 +243,29 @@ warning 6002: The table/view 'labo_sales.dbo.tbl_userType' does not have a prima
           <Property Type="Double" Name="Total_Profit" Nullable="true" />
           <Property Type="String" Name="uploaded_by" Nullable="true" MaxLength="50" />
           <Property Type="DateTime" Name="uploaded_date" Nullable="true" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="sp_GetSalesReportDetailsByDate_Result">
+          <Property Type="Int64" Name="id" Nullable="false" />
+          <Property Type="String" Name="Region" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Country" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Item_Type" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Sales_Channel" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Order_Priority" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="Order_Date" Nullable="true" />
+          <Property Type="String" Name="Order_ID" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="Ship_Date" Nullable="true" />
+          <Property Type="Int32" Name="Units_Sold" Nullable="true" />
+          <Property Type="Double" Name="Unit_Price" Nullable="true" />
+          <Property Type="Double" Name="Unit_Cost" Nullable="true" />
+          <Property Type="Double" Name="Total_Revenue" Nullable="true" />
+          <Property Type="Double" Name="Total_Cost" Nullable="true" />
+          <Property Type="Double" Name="Total_Profit" Nullable="true" />
+          <Property Type="String" Name="uploaded_by" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="uploaded_date" Nullable="true" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="sp_getTopprofitableItemTypes_Result">
+          <Property Type="String" Name="Item_Type" Nullable="true" MaxLength="50" />
+          <Property Type="Double" Name="Total_Profit" Nullable="true" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -319,6 +358,37 @@ warning 6002: The table/view 'labo_sales.dbo.tbl_userType' does not have a prima
                 <ScalarProperty Name="Total_Profit" ColumnName="Total_Profit" />
                 <ScalarProperty Name="uploaded_by" ColumnName="uploaded_by" />
                 <ScalarProperty Name="uploaded_date" ColumnName="uploaded_date" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_GetSalesReportDetailsByDate" FunctionName="labo_salesModel.Store.sp_GetSalesReportDetailsByDate">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="labo_salesModel.sp_GetSalesReportDetailsByDate_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Region" ColumnName="Region" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="Item_Type" ColumnName="Item_Type" />
+                <ScalarProperty Name="Sales_Channel" ColumnName="Sales_Channel" />
+                <ScalarProperty Name="Order_Priority" ColumnName="Order_Priority" />
+                <ScalarProperty Name="Order_Date" ColumnName="Order_Date" />
+                <ScalarProperty Name="Order_ID" ColumnName="Order_ID" />
+                <ScalarProperty Name="Ship_Date" ColumnName="Ship_Date" />
+                <ScalarProperty Name="Units_Sold" ColumnName="Units_Sold" />
+                <ScalarProperty Name="Unit_Price" ColumnName="Unit_Price" />
+                <ScalarProperty Name="Unit_Cost" ColumnName="Unit_Cost" />
+                <ScalarProperty Name="Total_Revenue" ColumnName="Total_Revenue" />
+                <ScalarProperty Name="Total_Cost" ColumnName="Total_Cost" />
+                <ScalarProperty Name="Total_Profit" ColumnName="Total_Profit" />
+                <ScalarProperty Name="uploaded_by" ColumnName="uploaded_by" />
+                <ScalarProperty Name="uploaded_date" ColumnName="uploaded_date" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_getTopprofitableItemTypes" FunctionName="labo_salesModel.Store.sp_getTopprofitableItemTypes">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="labo_salesModel.sp_getTopprofitableItemTypes_Result">
+                <ScalarProperty Name="Item_Type" ColumnName="Item_Type" />
+                <ScalarProperty Name="Total_Profit" ColumnName="Total_Profit" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

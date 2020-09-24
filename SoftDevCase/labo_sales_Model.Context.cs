@@ -76,5 +76,31 @@ namespace SoftDevCase
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_GetSalesReportDetails_Result>("sp_GetSalesReportDetails");
         }
+    
+        public virtual ObjectResult<sp_GetSalesReportDetailsByDate_Result> sp_GetSalesReportDetailsByDate(Nullable<System.DateTime> fromDate, Nullable<System.DateTime> todate)
+        {
+            var fromDateParameter = fromDate.HasValue ?
+                new ObjectParameter("fromDate", fromDate) :
+                new ObjectParameter("fromDate", typeof(System.DateTime));
+    
+            var todateParameter = todate.HasValue ?
+                new ObjectParameter("todate", todate) :
+                new ObjectParameter("todate", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_GetSalesReportDetailsByDate_Result>("sp_GetSalesReportDetailsByDate", fromDateParameter, todateParameter);
+        }
+    
+        public virtual ObjectResult<sp_getTopprofitableItemTypes_Result> sp_getTopprofitableItemTypes(Nullable<System.DateTime> fromDate, Nullable<System.DateTime> todate)
+        {
+            var fromDateParameter = fromDate.HasValue ?
+                new ObjectParameter("fromDate", fromDate) :
+                new ObjectParameter("fromDate", typeof(System.DateTime));
+    
+            var todateParameter = todate.HasValue ?
+                new ObjectParameter("todate", todate) :
+                new ObjectParameter("todate", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_getTopprofitableItemTypes_Result>("sp_getTopprofitableItemTypes", fromDateParameter, todateParameter);
+        }
     }
 }

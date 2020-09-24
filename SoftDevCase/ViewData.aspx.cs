@@ -48,9 +48,18 @@ namespace SoftDevCase
 
         protected void indexChanged(object sender, GridViewPageEventArgs e)
         {
-            gv_salesRecords.PageIndex = e.NewPageIndex;
-            this.BindGrid();
-        }
+            try
+            {
+                gv_salesRecords.PageIndex = e.NewPageIndex;
+                this.BindGrid();
+            }
+            catch (Exception ex)
+            {
+                ErrorMessage = ex.Message.ToString();
+                displayStatusMessage(ErrorMessage, "FAIL");
+            }
+         }
+
 
         private void displayStatusMessage(string statusMessage, string type)
         {

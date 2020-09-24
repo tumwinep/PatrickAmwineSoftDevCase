@@ -7,6 +7,7 @@ using System.Web;
 using System.Reflection;
 using System.Data.Entity.Core.Objects;
 using System.Data.SqlClient;
+using System.Globalization;
 
 namespace SoftDevCase
 {
@@ -82,6 +83,48 @@ namespace SoftDevCase
                 result=ex.Message;
             }
             return result;
+        }
+
+        public DataTable gisplayProftDetailsGrid(string selectFromDate, string selectToDate)
+        {
+            DataTable profitDetails = new DataTable();
+            try
+            {
+                using (var context = new labo_salesEntities())
+                {
+                    DateTime formatedFromDate = DateTime.ParseExact(selectFromDate, "yyyy/MM/dd", CultureInfo.InvariantCulture, DateTimeStyles.None);
+                    DateTime formatedToDate = DateTime.ParseExact(selectToDate, "yyyy/MM/dd", CultureInfo.InvariantCulture, DateTimeStyles.None);
+                    
+                    var profitdata = context.sp_GetSalesReportDetailsByDate(formatedFromDate, formatedToDate);
+                    profitDetails = DataTransformer.CreateDataTable(profitdata.ToList());
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return profitDetails;
+        }
+
+        public DataTable gisplayProftItemsGrid(string selectFromDate, string selectToDate)
+        {
+            DataTable profitableItems = new DataTable();
+            try
+            {
+                using (var context = new labo_salesEntities())
+                {
+                    DateTime formatedFromDate = DateTime.ParseExact(selectFromDate, "yyyy/MM/dd", CultureInfo.InvariantCulture, DateTimeStyles.None);
+                    DateTime formatedToDate = DateTime.ParseExact(selectToDate, "yyyy/MM/dd", CultureInfo.InvariantCulture, DateTimeStyles.None);
+
+                    var profitdata = context.sp_getTopprofitableItemTypes(formatedFromDate,formatedToDate);
+                    profitableItems = DataTransformer.CreateDataTable(profitdata.ToList());
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return profitableItems;
         }
     }
 }
