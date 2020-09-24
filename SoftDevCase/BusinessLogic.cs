@@ -54,6 +54,20 @@ namespace SoftDevCase
             return resp;
         }
 
+        public DataTable GetSalesRecordsData()
+        {
+            DataTable resp = new DataTable();
+            try
+            {
+                resp = dac.GetSalesRecordsData();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return resp;
+        }
+
         public string getErrorMessageDescription(string errorCode)
         {
             string resp = "";

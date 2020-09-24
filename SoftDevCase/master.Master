@@ -53,7 +53,7 @@
                     <ul class="nav list-group">
                         <li class="nav-item"><a class="list-group-item nav-link" href="UploadSalesCsv.aspx"><i class="icon-home icon-1x"></i>Upload CSV</a>
                         </li>
-                        <li class="nav-item"><a class="list-group-item nav-link" href="#"><i class="icon-home icon-1x"></i>View Data</a>
+                        <li class="nav-item"><a class="list-group-item nav-link" href="ViewData.aspx"><i class="icon-home icon-1x"></i>View Data</a>
                         </li>
                         <li class="nav-item"><a class="list-group-item nav-link" href="#"><i class="icon-home icon-1x"></i>DashBoard</a>
                         </li>

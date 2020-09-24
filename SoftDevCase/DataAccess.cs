@@ -15,7 +15,6 @@ namespace SoftDevCase
         public DataTable GetUserDetails(UserEnt userDetail)
         {
             DataTable userList = new DataTable();
-            BusinessLogic bl = new BusinessLogic();
             try
             {
                 using (var context = new labo_salesEntities())
@@ -33,7 +32,6 @@ namespace SoftDevCase
         public DataTable GetErrorCodeDescription(string errorCode)
         {
             DataTable errorMessageInfo = new DataTable();
-            BusinessLogic bl = new BusinessLogic();
             try
             {
                 using (var context = new labo_salesEntities())
@@ -47,6 +45,24 @@ namespace SoftDevCase
                 throw ex;
             }
             return errorMessageInfo;
+        }
+
+        public DataTable GetSalesRecordsData()
+        {
+            DataTable salesRecords = new DataTable();
+            try
+            {
+                using (var context = new labo_salesEntities())
+                {
+                    var salesData = context.sp_GetSalesReportDetails();
+                    salesRecords = DataTransformer.CreateDataTable(salesData.ToList());
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return salesRecords;
         }
 
         public string InsertLoadedDatatoDB(DataTable uplrecords)

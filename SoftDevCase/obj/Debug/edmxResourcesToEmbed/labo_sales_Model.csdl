@@ -45,6 +45,7 @@
     </FunctionImport>
     <EntitySet Name="tbl_sales_detail" EntityType="labo_salesModel.tbl_sales_detail" />
     <FunctionImport Name="sp_InsertSalesDetails" />
+    <FunctionImport Name="sp_GetSalesReportDetails" ReturnType="Collection(labo_salesModel.sp_GetSalesReportDetails_Result)" />
   </EntityContainer>
   <ComplexType Name="sp_GetUserDetails_Result">
     <Property Type="Int32" Name="userId" Nullable="false" />
@@ -81,4 +82,23 @@
     <Property Name="uploaded_by" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="uploaded_date" Type="DateTime" Precision="3" />
   </EntityType>
+  <ComplexType Name="sp_GetSalesReportDetails_Result">
+    <Property Type="Int64" Name="id" Nullable="false" />
+    <Property Type="String" Name="Region" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Country" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Item_Type" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Sales_Channel" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Order_Priority" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="Order_Date" Nullable="true" />
+    <Property Type="String" Name="Order_ID" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="Ship_Date" Nullable="true" />
+    <Property Type="Int32" Name="Units_Sold" Nullable="true" />
+    <Property Type="Double" Name="Unit_Price" Nullable="true" />
+    <Property Type="Double" Name="Unit_Cost" Nullable="true" />
+    <Property Type="Double" Name="Total_Revenue" Nullable="true" />
+    <Property Type="Double" Name="Total_Cost" Nullable="true" />
+    <Property Type="Double" Name="Total_Profit" Nullable="true" />
+    <Property Type="String" Name="uploaded_by" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="uploaded_date" Nullable="true" Precision="23" />
+  </ComplexType>
 </Schema>

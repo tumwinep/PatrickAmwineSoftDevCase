@@ -71,5 +71,10 @@ namespace SoftDevCase
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_InsertSalesDetails");
         }
+    
+        public virtual ObjectResult<sp_GetSalesReportDetails_Result> sp_GetSalesReportDetails()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_GetSalesReportDetails_Result>("sp_GetSalesReportDetails");
+        }
     }
 }

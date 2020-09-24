@@ -86,6 +86,7 @@
       <DependentUpon>labo_sales_Model.edmx</DependentUpon>
       <LastGenOutput>labo_sales_Model.cs</LastGenOutput>
     </Content>
+    <Content Include="ViewData.aspx" />
     <Content Include="UploadSalesCsv.aspx" />
     <Content Include="Landing.aspx" />
     <Content Include="Login.aspx" />
@@ -115,6 +116,16 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>labo_sales_Model.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="sp_GetSalesReportDetails_Result.cs">
+      <DependentUpon>labo_sales_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ViewData.aspx.cs">
+      <DependentUpon>ViewData.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewData.aspx.designer.cs">
+      <DependentUpon>ViewData.aspx</DependentUpon>
     </Compile>
     <Compile Include="UploadSalesCsv.aspx.cs">
       <DependentUpon>UploadSalesCsv.aspx</DependentUpon>
